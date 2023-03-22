@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Curso } from './curso';
 
 @Component({
   selector: 'app-curso',
@@ -7,10 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CursoComponent implements OnInit {
 
-  nome:string = "Bia";
+  //URL base
+  url = "http://localhost/api/php/";
+
+  //vetor de cursos
+  vetor:Curso[] | undefined;
 
   //construtor
-  constructor() {}
+  constructor(private http:HttpClient) {}
 
   //inicializador
   ngOnInit(): void {
